@@ -1,0 +1,1 @@
+swww waybar playerctl wofi wlogout swaync pavucontrol niri gtklock fuzzel cliphist kitty

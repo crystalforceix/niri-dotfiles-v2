@@ -1,0 +1,188 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "right",
+    "width": 24,
+    "height": "100%",
+
+    "modules-left": [
+//	"backlight",
+//	"backlight/slider",	
+        "custom/menu",
+        "custom/noti",
+	"niri/workspaces",
+	"mpris",
+    ],
+  
+   "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+	"group/batterythings",
+        "pulseaudio/slider",
+        "pulseaudio",
+	"tray",
+        "network",
+        "custom/powermenu"
+    ],
+    // Group module
+
+    "group/batterythings": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+        ]
+    },
+    // Modules configuration
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "<big></big>",
+            "default": "<small></small>"
+        }
+    },
+
+    "power-profiles-daemon": {
+        "format": " {icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+
+    "mpris": {
+        //"interval": 5,
+        "format": "{player_icon}",
+        "format-paused": "{status_icon}",
+        "player-icons": {
+            "default": "<small>-></small>"
+        },
+        "status-icons": {
+            "paused": "<small>-|</small>"
+        },
+        "on-double-click-right": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+    // "ignored-players": ["firefox"]
+    },
+
+     "backlight/slider": {
+    	"min": 10,
+        "max": 100,
+        "orientation": "vertical",
+        "width": 18,
+     },
+
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "",
+	},
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 150,
+        "orientation": "vertical",
+        "width": 18,
+    },
+
+    "custom/noti": {
+      "format":  "󰂚",
+      "on-click": "swaync-client -op",
+      "tooltip": false
+    },
+    "custom/menu": {
+        "format": "",
+        "on-click": "~/.config/niri/scripts/wofilauncher.sh",
+        "tooltip": false
+    },
+
+    "custom/powermenu": {
+	
+        "format": "󰐦",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+     "battery": {
+		"format": "{icon}",
+		"format-icons": ["<span color='#f38ba8'>󰂎</span>", "<span color='#fab387'>󰁺</span>", "<span color='#f9e2af'>󰁻</span>","<span color='#f9e2af'>󰁼</span>","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+		"format-charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+        	"on-scroll-up": "brightnessctl -c backlight set +5",
+        	"on-scroll-down": "brightnessctl -c backlight set 5-",
+		"interval": 2,
+		"tooltip": true,
+		"tooltip-format": "{capacity}%",	
+    	},
+
+
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H\n%M}",  // hour->minute
+        "format-alt": "{:%V\n%a\n%d\n%b\n%g}",  // week->weekday->day->mouth->year
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",  // calendar
+        "rotate": 0,
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "left",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-click-middle": "shift_reset",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "<small> </small>",
+        "format-ethernet": "󰈁",
+        "tooltip-format": "Network",
+        "tooltip-format-wifi": "{ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+	"tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-linked": "󰈁",
+        "format-disconnected": "⚠",
+        "on-click": "~/.config/niri/scripts/networkmanager.sh",
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-bluetooth-muted": "󰝟 {icon}",
+        "format-muted": "󰝟",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
+
+
