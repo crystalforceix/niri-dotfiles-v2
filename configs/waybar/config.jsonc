@@ -154,7 +154,7 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "<small> </small>",
+        "format-wifi": "<small></small>",
         "format-ethernet": "󰈁",
         "tooltip-format": "Network",
         "tooltip-format-wifi": "{ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",

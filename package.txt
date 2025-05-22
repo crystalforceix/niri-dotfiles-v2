@@ -1,1 +1,9 @@
-swww waybar playerctl wofi wlogout swaync pavucontrol niri gtklock fuzzel cliphist kitty
+swww waybar playerctl wofi wlogout swaync pavucontrol niri gtklock fuzzel cliphist kitty brightnessctl pamixer
+
+font:
+   yay -S ttf-jetbrains-mono
+   yay -S ttf-jetbrains-mono-nerd
+   yay -S ttf-nerd-fonts-symbols
+   yay -S ttf-nerd-fonts-symbols-mono
+
+option for fresh arch installed: gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly
