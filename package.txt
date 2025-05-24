@@ -1,4 +1,4 @@
-swww waybar playerctl wofi wlogout swaync pavucontrol niri gtklock fuzzel cliphist kitty brightnessctl pamixer
+swww waybar playerctl wofi wlogout swaync pavucontrol niri gtklock fuzzel cliphist kitty brightnessctl pamixer qt6-wayland
 
 font:
    yay -S ttf-jetbrains-mono

@@ -22,9 +22,10 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
+    "title",
+    "dnd",
     "buttons-grid",
     "volume",
-    "backlight",
     "mpris"
   ],
   "widget-config": {
@@ -66,15 +67,19 @@
         },
         {
           "label": "󰌾",
-          "command": "swaylock-corrupter"
+          "command": "bash -c ~/.config/niri/scripts/gtklock.sh"
         },
         {
           "label": "󰍃",
-          "command": "swaymsg exit"
+          "command": "niri msg action quit --skip-confirmation"
+        },
+        {
+          "label": "󰤄",
+          "command": "bash -c ~/.config/niri/scripts/suspendservice.sh"
         },
         {
           "label": "󰆴",
-          "command": "swaync-client -C"
+          "command": "kitty -d /home/anhbaphu/.local/share/Trash/files"
         },
         {
           "label": "󰕾",
@@ -88,15 +93,27 @@
         },
         {
           "label": "󰖩",
-          "command": "iwgtk"
+          "command": "kitty -e nmtui"
         },
         {
           "label": "󰂯",
           "command": "blueman-manager"
         },
         {
+          "label": "",
+          "command": "kitty -e nvim"
+        },
+        {
           "label": "",
-          "command": "kooha"
+          "command": "obs"
+        },
+        {
+          "label": "󰈹",
+          "command": "firefox"
+        },
+        {
+          "label": "",
+          "command": "kitty -e ~"
         }
       ]
     }

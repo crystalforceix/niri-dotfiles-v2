@@ -296,7 +296,7 @@ window-rule {
     // Set open-maximized to true for all windows.
 
 window-rule {
-    open-maximized false
+    open-maximized true
     // opacity 0.95    
     // match is-active=false
 }
@@ -329,6 +329,9 @@ binds {
 
     // Lockscreen
     Mod+L { spawn "~/.config/niri/scripts/gtklock.sh"; }
+
+    // Suspend keys
+    Mod+Shift+L { spawn "~/.config/niri/scripts/suspendservice.sh"; }
 
     // Keybinds of app
     Mod+E { spawn "nautilus"; }
@@ -494,4 +497,12 @@ binds {
 
 hotkey-overlay {
     skip-at-startup
+}
+
+    // --#*Switch events*#--
+
+    switch-events {
+    lid-open { spawn "~/.config/niri/scripts/gtklock.sh"; }
+    tablet-mode-on { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+    tablet-mode-off { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
 }
